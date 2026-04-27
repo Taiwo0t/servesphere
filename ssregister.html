@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Become a Seller | ServeSphere</title>
+    <link rel="stylesheet" href="ssr.css">
+</head>
+<body>
+
+<div class="vendor-page">
+
+    <!-- LEFT SIDE (FORM NOW HERE) -->
+    <div class="vendor-left">
+        <h2>Become a Seller</h2>
+
+        <form id="sellerForm">
+            <input type="text" id="businessName" placeholder="Business Name" required>
+            <input type="email" id="businessEmail" placeholder="Business Email" required>
+            <input type="text" id="businessAddress" placeholder="Business Address" required>
+            <input type="text" id="phoneNumber" placeholder="Phone Number" required>
+
+            <select id="storeType" required>
+                <option value="">Select Store Type</option>
+                <option value="Food">Food</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Technology">Technology & Pharmacy</option>
+            </select>
+
+            <input type="text" id="deliveryTime" placeholder="Delivery Time (e.g., 30-45 mins)" required>
+
+            <div class="checkbox-group">
+                <label for="isOpen" class="checkbox-label">
+                    <input type="checkbox" id="isOpen" checked>
+                    <span>Store is Open</span>
+                </label>
+            </div>
+
+            <div class="image-upload-section">
+                <label for="storeImage">Store Image</label>
+                <input type="file" id="storeImage" accept="image/*" placeholder="Upload a store image">
+                <small>Choose an image to represent your store</small>
+            </div>
+
+            <button type="submit" id="createStoreBtn">Create Store</button>
+        </form>
+    </div>
+
+    <!-- RIGHT SIDE (BRANDING) -->
+    <div class="vendor-right">
+        <div class="logo">
+    <img src="logo.png" alt="ServeSphere Logo">
+</div>
+
+        <h1>Grow Your Business <br> with ServeSphere</h1>
+        <p>Reach thousands of customers, manage orders easily,
+        and build your brand with us.</p>
+    </div>
+
+</div>
+
+<script src="storeManager.js"></script>
+</body>
+</html>

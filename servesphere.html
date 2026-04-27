@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ServeSphere</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="servesphere.css">
+</head>
+
+<body>
+
+<div id="loading">
+    <img src="logo.png" alt="Loading..." class="bouncing-logo">
+</div>
+
+<div class="container">
+
+    <div class="top-nav">
+        <!-- Make sure your logo file name matches -->
+        <img src="logo.png" alt="ServeSphere Logo">
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger" id="hamburgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="ssregister.html" class="seller-btn">Become a Seller</a>
+            <a href="signin.html" class="sign-in-btn" id="signInLink">Sign In</a>
+            <div class="profile-section" id="profileSection" style="display: none;">
+                <button class="profile-btn" id="profileBtn">
+                    <span class="profile-avatar" id="profileAvatar">👤</span>
+                    <span class="profile-name" id="profileName"></span>
+                </button>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="profile-header">
+                        <span class="dropdown-name" id="dropdownName"></span>
+                        <span class="dropdown-email" id="dropdownEmail"></span>
+                    </div>
+                    <a href="#" class="dropdown-item">My Account</a>
+                    <a href="foodpage.html?view=orders" class="dropdown-item orders-link" id="desktopOrdersLink">My Orders <span class="orders-notification-badge" id="desktopOrdersBadge" style="display: none;">0</span></a>
+                    <a href="#" class="dropdown-item">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item logout-btn" id="logoutBtn">Sign Out</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header" id="mobileMenuHeader" style="display: none;">
+                <div class="mobile-profile">
+                    <span class="mobile-avatar" id="mobileAvatar">👤</span>
+                    <div class="mobile-profile-info">
+                        <span class="mobile-profile-name" id="mobileProfileName"></span>
+                        <span class="mobile-profile-email" id="mobileProfileEmail"></span>
+                    </div>
+                </div>
+                <div class="mobile-menu-divider"></div>
+            </div>
+            <a href="ssregister.html" class="mobile-menu-item">Become a Seller</a>
+            <a href="signin.html" class="mobile-menu-item" id="mobileSignInLink">Sign In</a>
+            <a href="#" class="mobile-menu-item" id="mobileAccountBtn" style="display: none;">My Account</a>
+            <a href="foodpage.html?view=orders" class="mobile-menu-item orders-link" id="mobileOrdersBtn" style="display: none;">My Orders <span class="orders-notification-badge" id="mobileOrdersBadge" style="display: none;">0</span></a>
+            <a href="#" class="mobile-menu-item" id="mobileSettingsBtn" style="display: none;">Settings</a>
+            <div class="mobile-menu-divider" id="mobileLogoutDivider" style="display: none;"></div>
+            <button class="mobile-menu-item logout-btn" id="mobileLogoutBtn" style="display: none;">Sign Out</button>
+        </div>
+    </div>
+
+    <h1>What are you here for today?</h1>
+    <div class="subtitle">Choose a space, and we'll take you there.</div>
+
+    <div class="categories">
+
+        <a href="browsing.html?category=fashion" class="card">
+            <img src="fashion.jpg" alt="Fashion">
+            <h3>Fashion</h3>
+            <p>Clothing · Shoes · Accessories</p>
+        </a>
+
+        <a href="browsing.html?category=food" class="card">
+            <img src="food.png" alt="Food">
+            <h3>Food</h3>
+            <p>Restaurants · Retail · Local Kitchens</p>
+        </a>
+
+        <a href="browsing.html?category=accessories" class="card">
+            <img src="image.png" alt="Accessories" class="accessories-photo">
+            <h3>Accessories</h3>
+            <p>Jewelry · Bags · Watches</p>
+        </a>
+
+        <a href="browsing.html?category=technology" class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" alt="Technology & Pharmacy">
+            <h3>Technology & Pharmacy</h3>
+            <p>Device · Accessories · Health</p>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        Powered by independent businesses.
+    </div>
+
+</div>
+
+<!-- Sign In Modal -->
+<div id="signInModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Sign In to ServeSphere</h2>
+        <form id="signInForm">
+            <div class="form-group">
+                <label for="modalName">Full Name or Nickname</label>
+                <input type="text" id="modalName" name="name" placeholder="Enter your name" autocomplete="name" required>
+                <span class="error" id="modalNameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" autocomplete="current-password" required>
+                <span class="error" id="passwordError"></span>
+            </div>
+            <div class="form-group checkbox">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe">Remember me</label>
+            </div>
+            <button type="submit" class="submit-btn">Sign In</button>
+        </form>
+        <div class="form-footer">
+            <a href="#">Forgot Password?</a>
+            <span>Don't have an account? <a href="ssregister.html">Register</a></span>
+        </div>
+    </div>
+</div>
+
+<!-- Link JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>
