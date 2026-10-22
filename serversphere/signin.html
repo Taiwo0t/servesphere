@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In - ServeSphere</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="servesphere.css">
+</head>
+<body class="signin-page">
+
+<div class="signin-container">
+    
+    <div class="signin-header">
+        <a href="servesphere.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <div class="signin-box">
+        <div class="signin-logo">
+            <img src="logo.png" alt="ServeSphere Logo">
+        </div>
+
+        <h1>Welcome Back!</h1>
+        <p class="signin-subtitle">Sign in to your ServeSphere account</p>
+
+        <form id="fullSignInForm" class="signin-form" novalidate>
+            <div class="form-group">
+                <label for="signinName">Full Name or Nickname</label>
+                <input type="text" id="signinName" name="name" placeholder="Enter your name">
+                <span class="error" id="signinNameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="signinEmail">Email Address</label>
+                <input type="email" id="signinEmail" name="email" placeholder="Enter your email">
+                <span class="error" id="signinEmailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="signinPassword">Password</label>
+                <input type="password" id="signinPassword" name="password" placeholder="Enter your password">
+                <span class="error" id="signinPasswordError"></span>
+            </div>
+
+            <div class="form-group checkbox">
+                <input type="checkbox" id="signinRememberMe" name="rememberMe">
+                <label for="signinRememberMe">Remember me on this device</label>
+            </div>
+
+            <button type="submit" class="signin-submit-btn">Sign In</button>
+        </form>
+
+        <div class="signin-footer">
+            <a href="#" class="forgot-password">Forgot your password?</a>
+        </div>
+
+        <div class="signin-divider">or</div>
+
+        <div class="signin-social">
+            <button type="button" class="social-btn google-btn">Sign in with Google</button>
+            <button type="button" class="social-btn facebook-btn">Sign in with Facebook</button>
+        </div>
+
+        <div class="signin-register">
+            <p>Don't have an account? <a href="ssregister.html">Create one now</a></p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

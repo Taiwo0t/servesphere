@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store Owner Dashboard - ServerSphere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="owner-dashboard.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div class="header-content">
+      <div class="logo-section">
+        <h1>ServerSphere</h1>
+        <span class="subtitle">Store Owner Portal</span>
+      </div>
+      <div class="header-actions">
+        <button id="viewStoreBtn" class="header-btn">👁️ View Store</button>
+        <button id="logoutBtn" class="header-btn logout-btn">🚪 Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar">
+    <!-- Profile Section -->
+    <div class="profile-section">
+      <div class="profile-avatar" id="profileAvatar">👤</div>
+      <h4 id="ownerName">Owner Name</h4>
+      <p id="ownerEmail">email@store.com</p>
+    </div>
+
+    <div class="nav-section">
+      <h3>Store Management</h3>
+      <ul>
+        <li><a href="#" data-tab="overview" class="nav-link active">📊 Dashboard</a></li>
+        <li><a href="#" data-tab="store-settings" class="nav-link">⚙️ Store Settings</a></li>
+        <li><a href="#" data-tab="menu" class="nav-link">📋 Menu</a></li>
+        <li><a href="#" data-tab="products" class="nav-link">🍕 Products</a></li>
+        <li><a href="#" data-tab="orders" class="nav-link">📦 Orders</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="dashboard-main">
+    
+    <!-- Dashboard Overview Tab -->
+    <section id="overview" class="tab-content active">
+      <h2>Dashboard</h2>
+      
+      <!-- Store Header Card -->
+      <div class="store-header-card">
+        <div class="store-header-image" id="storeHeaderImage"></div>
+        <div class="store-header-info">
+          <div class="store-header-top">
+            <div>
+              <h3 id="storeNameDisplay">Store Name</h3>
+              <div class="store-rating">
+                <span class="stars" id="storeStars">★★★★☆</span>
+                <span class="rating-value" id="storeRatingValue">4.5</span>
+              </div>
+            </div>
+            <div class="store-status-badge" id="storeStatusBadge">OPEN</div>
+          </div>
+          <div class="store-header-details">
+            <p class="detail"><span class="icon">📍</span> <span id="storeAddressDisplay">Address</span></p>
+            <p class="detail"><span class="icon">⏱️</span> <span id="storeDeliveryDisplay">30-45 mins</span></p>
+          </div>
+          <a href="#" data-tab="store-settings" class="edit-btn">✏️ Edit Store</a>
+        </div>
+      </div>
+
+      <!-- Metrics Grid -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="metric-icon">📋</span>
+            <h4>Orders Today</h4>
+          </div>
+          <p class="metric-value" id="ordersToday">0</p>
+          <p class="metric-label" id="ordersTodayLabel">vs yesterday</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="metric-icon">🍽️</span>
+            <h4>Menu Items</h4>
+          </div>
+          <p class="metric-value" id="totalMenuItems">0</p>
+          <p class="metric-label">available</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="metric-icon">💰</span>
+            <h4>Earnings Today</h4>
+          </div>
+          <p class="metric-value" id="earningsToday">$0.00</p>
+          <p class="metric-label">current</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="metric-icon">🏆</span>
+            <h4>Total Earnings</h4>
+          </div>
+          <p class="metric-value" id="totalEarnings">$0.00</p>
+          <p class="metric-label">all time</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Store Settings Tab -->
+    <section id="store-settings" class="tab-content">
+      <h2>Store Settings</h2>
+      
+      <div class="form-container">
+        <form id="storeSettingsForm">
+          <div class="form-group">
+            <label for="settingsStoreName">Store Name</label>
+            <input type="text" id="settingsStoreName" placeholder="Your store name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="settingsStoreType">Store Type</label>
+            <select id="settingsStoreType" required>
+              <option value="">Select Store Type</option>
+              <option value="Food">Food</option>
+              <option value="Restaurant">Restaurant</option>
+              <option value="Cafe">Cafe</option>
+              <option value="Bakery">Bakery</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="settingsAddress">Address</label>
+            <input type="text" id="settingsAddress" placeholder="Store address" required>
+          </div>
+
+          <div class="form-group">
+            <label for="settingsPhone">Phone Number</label>
+            <input type="tel" id="settingsPhone" placeholder="Phone number" required>
+          </div>
+
+          <div class="form-group">
+            <label for="settingsDeliveryTime">Delivery Time</label>
+            <input type="text" id="settingsDeliveryTime" placeholder="e.g., 30-45 mins" required>
+          </div>
+
+          <div class="form-group checkbox">
+            <input type="checkbox" id="settingsIsOpen" checked>
+            <label for="settingsIsOpen">Store is Open</label>
+          </div>
+
+          <div class="form-group">
+            <label for="settingsImage">Store Logo/Cover Image</label>
+            <input type="file" id="settingsImage" accept="image/*">
+            <small>Upload an image for your store cover</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Menu Management Tab -->
+    <section id="menu" class="tab-content">
+      <h2>Menu Management</h2>
+      
+      <div class="menu-management">
+        <div class="menu-header">
+          <h3>Categories</h3>
+          <button id="addCategoryBtn" class="btn btn-small">+ Add Category</button>
+        </div>
+
+        <div id="categoriesList" class="categories-list">
+          <!-- Categories will be populated here -->
+        </div>
+
+        <div id="noCategoriesMessage" class="empty-message">
+          <div class="empty-state-icon" aria-hidden="true">📂</div>
+          <h4>No categories yet</h4>
+          <p>Add your first category to organize menu items and keep your store easy to browse.</p>
+        </div>
+      </div>
+
+      <!-- Add Category Modal -->
+      <div id="categoryModal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <button class="modal-close" id="categoryModalClose">&times;</button>
+          <h3>Add Category</h3>
+          <form id="categoryForm">
+            <div class="form-group">
+              <label for="categoryName">Category Name</label>
+              <input type="text" id="categoryName" placeholder="e.g., Appetizers" required>
+            </div>
+            <div class="form-group">
+              <label for="categoryDescription">Description</label>
+              <textarea id="categoryDescription" placeholder="Category description" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Category</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Management Tab -->
+    <section id="products" class="tab-content">
+      <h2>Menu Items</h2>
+      
+      <div class="products-management">
+        <div class="products-header">
+          <div class="products-title">
+            <h3>All Menu Items</h3>
+            <p class="products-subtitle">Manage your restaurant's food items and prices</p>
+          </div>
+          <button id="addProductBtn" class="btn btn-primary btn-small">+ Add Item</button>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="category-filter-tabs" id="categoryFilterTabs">
+          <button class="category-tab active" data-category="all">All Items</button>
+          <!-- More tabs will be populated here -->
+        </div>
+
+        <!-- Menu Items Table -->
+        <div class="menu-items-table-wrapper">
+          <table class="menu-items-table" id="menuItemsTable">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Item Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Availability</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="menuItemsTableBody">
+              <!-- Items will be populated here -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="noProductsMessage" class="empty-message">
+          <div class="empty-state-icon" aria-hidden="true">🍽️</div>
+          <h4>No menu items yet</h4>
+          <p>Create a category and add your first item to start receiving orders.</p>
+        </div>
+      </div>
+
+      <!-- Add Product Modal -->
+      <div id="productModal" class="modal" style="display: none;">
+        <div class="modal-content wide">
+          <button class="modal-close" id="productModalClose">&times;</button>
+          <h3 id="productModalTitle">Add Product</h3>
+          <form id="productForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="productCategory">Category *</label>
+                <select id="productCategory" required>
+                  <option value="">Select a category</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="productName">Product Name *</label>
+                <input type="text" id="productName" placeholder="e.g., Margherita Pizza" required>
+              </div>
+
+              <div class="form-group">
+                <label for="productPrice">Price ($) *</label>
+                <input type="number" id="productPrice" placeholder="0.00" step="0.01" min="0" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="productDescription">Description *</label>
+                <textarea id="productDescription" placeholder="Describe your product" rows="4" required></textarea>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="productImage">Product Image *</label>
+                <div class="image-upload-box">
+                  <input type="file" id="productImage" accept="image/*" required>
+                  <div class="image-preview" id="imagePreview" style="display: none;">
+                    <img id="previewImg" src="" alt="Preview">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary" id="productModalClose2">Cancel</button>
+              <button type="submit" class="btn btn-primary">Save Product</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Orders Tab -->
+    <section id="orders" class="tab-content">
+      <h2>Orders</h2>
+      
+      <div class="orders-management">
+        <div class="orders-filter">
+          <button class="filter-btn active" data-status="all">All Orders</button>
+          <button class="filter-btn" data-status="pending">Pending</button>
+          <button class="filter-btn" data-status="completed">Completed</button>
+          <button class="filter-btn" data-status="cancelled">Cancelled</button>
+        </div>
+
+        <div id="ordersList" class="orders-list">
+          <!-- Orders will be populated here -->
+        </div>
+
+        <div id="noOrdersMessage" class="empty-message">
+          <div class="empty-state-icon" aria-hidden="true">🧾</div>
+          <h4>No orders yet</h4>
+          <p>Incoming customer orders will appear here in real time once your store is live.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="storeManager.js"></script>
+  <script src="ownerDashboard.js"></script>
+</body>
+</html>

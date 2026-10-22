@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store - ServerSphere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="store.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="store-header">
+    <button id="backBtn" class="back-btn">← Back</button>
+    <div class="header-title">
+      <h1>Store</h1>
+    </div>
+    <div class="header-icons">
+      <span class="cart-icon" id="cartIcon">🛒<span class="cart-count" id="cartCount" style="display: none;">0</span></span>
+    </div>
+  </header>
+
+  <!-- Store Info Section -->
+  <section class="store-info-section">
+    <div class="store-cover" id="storeCover"></div>
+    <div class="store-details-container">
+      <div class="store-basic-info">
+        <h2 id="storeName">Store Name</h2>
+        <div class="store-meta">
+          <span class="store-category" id="storeCategory">Category</span>
+          <span class="store-status" id="storeStatus">Open</span>
+        </div>
+        <div class="store-metrics">
+          <div class="metric">
+            <span class="metric-icon">⭐</span>
+            <span class="metric-value" id="storeRating">4.5</span>
+          </div>
+          <div class="metric">
+            <span class="metric-icon">⏱️</span>
+            <span class="metric-value" id="storeDelivery">30-45 mins</span>
+          </div>
+        </div>
+        <p class="store-address" id="storeAddress">📍 Address</p>
+        <p class="store-phone" id="storePhone">📞 Phone</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="store-content">
+    <!-- Menu Section -->
+    <section class="menu-section">
+      <h2>Menu</h2>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs" id="categoryTabs">
+        <!-- Categories will be populated here -->
+      </div>
+
+      <!-- Menu Items Display -->
+      <div class="menu-items-container">
+        <div id="menuItems" class="menu-items">
+          <!-- Menu items will be populated here -->
+        </div>
+        <div id="emptyMenuMessage" class="empty-menu-message" style="display: none;">
+          <p>No items available in this category yet.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Item Detail Modal -->
+  <div id="itemModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+      <div class="modal-body">
+        <img id="itemImage" class="item-image" src="" alt="Item">
+        <h3 id="itemName">Item Name</h3>
+        <p id="itemDescription">Item description</p>
+        <p class="item-price" id="itemPrice">$0.00</p>
+        <div class="quantity-selector">
+          <button id="decreaseQty" class="qty-btn">−</button>
+          <input type="number" id="quantityInput" class="qty-input" value="1" min="1">
+          <button id="increaseQty" class="qty-btn">+</button>
+        </div>
+        <button id="addToCartBtn" class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <aside id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button id="cartCloseBtn" class="cart-close">&times;</button>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <!-- Cart items will be populated here -->
+    </div>
+    <div id="emptyCartMessage" class="empty-cart-message">
+      <p>Your cart is empty</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <strong>Total:</strong>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button id="checkoutBtn" class="checkout-btn" style="display: none;">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Cart Overlay -->
+  <div id="cartOverlay" class="cart-overlay" style="display: none;"></div>
+
+  <script src="storeManager.js"></script>
+  <script src="storeDetail.js"></script>
+</body>
+</html>
